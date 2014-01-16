@@ -2,11 +2,21 @@ var match = require('minimatch');
 
 var globject = function (obj) {
   return function (val) {
-    var key = Object.keys(obj).filter(function (key) {
-      return match(val, key);
-    })[0];
+    var keys = Object.keys(obj);
+    var len = keys.length;
+    var i = 0;
+    var globKey;
+    var key;
     
-    return (key) ? obj[key] : undefined;
+    for(i; i < len; i += 1) {
+      key = keys[i];
+      
+      if (match(val, key)){
+        globKey = obj[key];
+      }
+    }
+    
+    return globKey;
   };
 };
 
