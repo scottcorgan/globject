@@ -13,6 +13,7 @@ var globject = function (obj) {
       
       if (match(val, key)){
         globKey = obj[key];
+        break;
       }
     }
     
