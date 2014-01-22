@@ -20,3 +20,9 @@ test('returns undefined if no matches found', function (t) {
   t.equal(obj('nothing'), undefined, 'no match for nothing');
   t.end();
 });
+
+test('undefined routes object', function (t) {
+  var obj = globject();
+  t.equal(obj('nothing'), undefined, 'no match with no routes');
+  t.end();
+});

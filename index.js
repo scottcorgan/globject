@@ -1,6 +1,8 @@
 var match = require('minimatch');
 
 var globject = function (obj) {
+  obj = obj || {};
+  
   return function (val) {
     var keys = Object.keys(obj);
     var len = keys.length;
