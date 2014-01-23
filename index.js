@@ -1,4 +1,4 @@
-var match = require('minimatch');
+var minimatch = require('minimatch');
 
 var globject = function (obj) {
   obj = obj || {};
@@ -13,7 +13,7 @@ var globject = function (obj) {
     for(i; i < len; i += 1) {
       key = keys[i];
       
-      if (match(val, key)){
+      if (minimatch(val, key)){
         globKey = obj[key];
         break;
       }
