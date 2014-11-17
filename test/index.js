@@ -32,6 +32,25 @@ test('undefined routes object', function (t) {
   t.end();
 });
 
+test('matches values with negation', function (t) {
+  
+  var obj1 = globject({
+    '!/something/**': 'not something',
+  });
+  
+  t.equal(obj1('/anything-else'), 'not something', 'matched negate single-depth route');
+  t.equal(obj1('/something/content'), undefined, 'does not match negate single-depth route');
+  
+  var obj2 = globject({
+    '!/nested/*.html': 'not html',
+  });
+  
+  t.equal(obj2('/nested/image.jpg'), 'not html', 'matched negate single-depth route by extension');
+  t.equal(obj2('/nested/index.html'), undefined, 'no match for negated value');
+  
+  t.end();
+});
+
 test('matches all routes with extension', function (t) {
   
   var routes = globject({

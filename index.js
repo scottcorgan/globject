@@ -1,21 +1,22 @@
 var minimatch = require('minimatch');
 
-var globject = function (obj) {
-  obj = obj || {};
+var globject = function (map) {
+  
+  map = map || {};
   
   return function (val) {
-    var keys = Object.keys(obj);
+    
+    var keys = Object.keys(map);
     var len = keys.length;
-    var i = 0;
     var globKey;
     var key;
     
-    for(i; i < len; i += 1) {
+    for(var i = 0; i < len; i += 1) {
       key = keys[i];
       
       if (minimatch(val, key)){
-        globKey = obj[key];
-        break;
+        globKey = map[key];
+        break;g
       }
     }
     
