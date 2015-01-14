@@ -16,7 +16,7 @@ var globject = function (map) {
       
       if (minimatch(val, key)){
         globKey = map[key];
-        break;g
+        break;
       }
     }
     
